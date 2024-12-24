@@ -1,5 +1,5 @@
 import java.util.Objects;
-//abstract is used thus it cannot be directly created. It serves as the basis for other classes that will inherit it.
+
 public abstract class LibraryItem {
     private String title;
     private boolean isBorrowed;
@@ -18,11 +18,19 @@ public abstract class LibraryItem {
     }
 
     public void borrowItem() {
-        isBorrowed = true;
+        if (isBorrowed) {
+            System.out.println("The item is already borrowed.");
+        } else {
+            isBorrowed = true;
+        }
     }
 
     public void returnItem() {
-        isBorrowed = false;
+        if (!isBorrowed) {
+            System.out.println("The item is not currently borrowed.");
+        } else {
+            isBorrowed = false;
+        }
     }
 
     @Override
